@@ -16,13 +16,8 @@ namespace ReportGenerator
   public class PdfConverterController : ControllerBase
   {
     [HttpPost]
-    public FileContentResult ConvertFromHtml()
+    public FileContentResult ConvertFromHtml([FromForm] string htmlInput, [FromForm] string fileNameWithoutExtension, [FromForm] string orientation, [FromForm] bool pageNumbering)
     {
-      string htmlInput = Request.Form["htmlInput"]; //read input string
-      string fileNameWithoutExtension = Request.Form["fileNameWithoutExtension"]; //read file name
-      string orientation = Request.Form["orientation"]; //read orientation
-      bool pageNumbering = Convert.ToBoolean(Request.Form["pageNumbering"]); //read numbering toggle
-
       byte[] pdfBytes = null;
 
       try
