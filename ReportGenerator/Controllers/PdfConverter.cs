@@ -16,7 +16,7 @@ namespace ReportGenerator
   public class PdfConverterController : ControllerBase
   {
     [HttpPost]
-    public FileContentResult ConvertFromHtml([FromForm] string htmlInput, [FromForm] string fileNameWithoutExtension, [FromForm] string orientation, [FromForm] bool pageNumbering)
+    public FileContentResult ConvertFromHtml([FromForm] string htmlInput, [FromForm] string fileNameWithoutExtension, [FromForm] string orientation = "", [FromForm] bool pageNumbering = true)
     {
       byte[] pdfBytes = null;
 
